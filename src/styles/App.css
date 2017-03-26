@@ -1,0 +1,23 @@
+.btn-m15 {
+  margin: 15px;
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+
+#app {
+  background-image: url('/images/pencils.jpg');
+  background-size: cover;
+}
+
+.main-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.col-vcenter {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+}
