@@ -6,6 +6,10 @@ class DictionaryAPI {
     this.baseUrl = `https://api.datamuse.com/words`;
   }
 
+  getRandomWords() {
+    return axios.get(`http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=false&includePartOfSpeech=noun&minCorpusCount=50000&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&limit=12&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5`);
+  }
+
   getRelatedWords(word) {
     let wordEncoded = encodeURIComponent(word);
     return axios.get(`${this.baseUrl}?topics=${wordEncoded}&max=100`);
@@ -36,13 +40,13 @@ class DictionaryAPI {
     return axios.get(`${this.baseUrl}?rc=${wordEncoded}&max=100&md=p`);
   }
 
-  getFrequentPredcessors(word, topic) {
+  getFrequentFollowers(word, topic) {
     let wordEncoded = encodeURIComponent(word);
     let topicEncoded = encodeURIComponent(topic);
     return axios.get(`${this.baseUrl}?rel_bga=${wordEncoded}&topics=${topicEncoded}&max=100&md=p`);
   }
 
-  getFrequentFollowers(word, topic) {
+  getFrequentPredcessors(word, topic) {
     let wordEncoded = encodeURIComponent(word);
     let topicEncoded = encodeURIComponent(topic);
     return axios.get(`${this.baseUrl}?rel_bgb=${wordEncoded}&topics=${topicEncoded}&max=100&md=p`);

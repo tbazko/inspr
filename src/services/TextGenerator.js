@@ -15,7 +15,7 @@ export default class TextGenerator {
     var follower = dictionaryAPI.getFrequentFollowers(this.relatedWord, this.derivedTopic);
     var verb = dictionaryAPI.getRandomVerb();
     var preposition = dictionaryAPI.getRandomPreposition();
-    var afterPrepositionWords = dictionaryAPI.getFrequentFollowers(this.relatedWord, this.mainTopic);
+    var afterPrepositionWords = dictionaryAPI.getFrequentPredcessors(this.relatedWord, this.mainTopic);
 
     return Promise.all([predcessor, follower, verb, preposition, afterPrepositionWords])
       .then(this._generateText.bind(this));
@@ -53,6 +53,7 @@ export default class TextGenerator {
   }
 
   _constructSentence() {
-    return `${this.predcessor} ${this.relatedWord} ${this.verb} ${this.adjective} ${this.derivedTopic} ${this.mainTopic} ${this.preposition} ${this.afterPreposition}`;
+    return `${this.predcessor} ${this.relatedWord} ${this.verb} ${this.adjective} ${this.derivedTopic} ${this.mainTopic} ${this.preposition} ${this.afterPreposition}.`;
+    // return `${this.relatedWord} ${this.preposition} ${this.afterPreposition} ${this.adjective} ${this.derivedTopic}`;
   }
 }

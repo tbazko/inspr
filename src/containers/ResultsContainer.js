@@ -8,6 +8,7 @@ export default class ResultsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       relatedWord: this.props.location.state.relatedWord,
       topic: this.props.location.state.topic,
       adjective: this.props.location.state.adjective,
@@ -26,6 +27,9 @@ export default class ResultsContainer extends React.Component {
   }
 
   handleRefresh() {
+    this.setState({
+      isLoading: true
+    });
     this.generateAnIdea();
   }
 
@@ -37,7 +41,8 @@ export default class ResultsContainer extends React.Component {
     text.relatedWord = this.state.relatedWord;
     let sentence = text.generate().then((sentence) => {
       this.setState({
-        sentence: sentence
+        sentence: sentence,
+        isLoading: false
       });
     });
   }

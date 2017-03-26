@@ -7,7 +7,8 @@ function Words(props) {
   )
   return (
     <div>
-      <h1>{props.header}</h1>
+      {!props.header ? null :
+      <h1>{props.header}</h1>}
       <WordsWrapper onRefreshItems={props.onRefresh}>
         {wordsList}
       </WordsWrapper>

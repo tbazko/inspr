@@ -6,7 +6,14 @@ export default class HomeContainer extends React.Component {
     super(props);
     this.state = {
       topic: '',
+      isLoading: true
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      isLoading: false
+    });
   }
 
   handleUpdateTopic(e) {
@@ -21,15 +28,21 @@ export default class HomeContainer extends React.Component {
     this.setState({
       topic: ''
     });
-    this.props.history.push('/' + topic);
+    this.props.history.push('/generator/' + topic);
+  }
+
+  handleStart() {
+    this.props.history.push('/generator');
   }
 
   render() {
     return (
         <Home
+          isLoading={this.state.isLoading}
           topic={this.state.topic}
           onUpdateTopic={this.handleUpdateTopic.bind(this)}
-          onSubmitTopic={this.handleSubmitTopic.bind(this)} />
+          onSubmitTopic={this.handleSubmitTopic.bind(this)}
+          onStart={this.handleStart.bind(this)} />
     )
   }
 }

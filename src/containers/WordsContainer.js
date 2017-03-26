@@ -87,7 +87,11 @@ export default class WordsContainer extends React.Component {
 
   handleRefresh(e) {
     if(this.randomWords.remaining < this.props.wordsAmount) {
-      this.randomWords.reset();
+      if(this.props.random) {
+        return this.getWordsFromApi();
+      } else {
+        this.randomWords.reset();
+      }
     }
     this.setState({
       words: this.randomWords.getRandom(this.props.wordsAmount)
@@ -115,12 +119,15 @@ export default class WordsContainer extends React.Component {
 }
 
 WordsContainer.propTypes = {
-  baseWord: PropTypes.string.isRequired,
-  header: PropTypes.string.isRequired,
+  baseWord: PropTypes.string,
+  random: PropTypes.bool,
+  header: PropTypes.string,
   onWordSelected: PropTypes.func.isRequired,
   getWordPromise: PropTypes.func.isRequired
 }
 
 WordsContainer.defaultProps = {
-  wordsAmount: 3
+  wordsAmount: 3,
+  baseWord: '',
+  random: false
 }

@@ -1,26 +1,26 @@
 import React, {PropTypes} from 'react'
+import Loading from './Loading'
+import Words from './Words'
 
 function Home(props) {
-  return(
-    <div className="col-sm-8 col-sm-offset-2 text-center col-vcenter">
-      <h1>
-        Creative block?
-        <p><small>get some random ideas for your next piece</small></p>
-      </h1>
-
-      <h5>Enter some topic (just 1-2 nouns, works best):</h5>
-      <div className="col-sm-10 col-sm-offset-1">
+  return props.isLoading === true
+  ? <Loading speed={300} text="Loading" />
+  : <div key="home" className="col-sm-8 col-sm-offset-2 text-center col-vcenter">
+      <h1>Lack of drawing ideas?</h1>
+      <p className="lead">Gather up words to create a topic which will wind up your thoughts!</p>
+      <button className="btn btn-primary btn-lg" onClick={props.onStart}>Start with random</button>
+      <h3>or</h3>
+      <div className="col-sm-6 col-sm-offset-3">
         <form action="" onSubmit={props.onSubmitTopic} className="form-horizontal">
           <div className="form-group">
             <input type="text" className="form-control" placeholder="Enter topic" value={props.topic} onChange={props.onUpdateTopic} />
           </div>
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">Continue</button>
+            <button className="btn btn-default btn-lg" type="submit">Start with given noun</button>
           </div>
         </form>
       </div>
     </div>
-  )
 }
 
 Home.PropTypes = {

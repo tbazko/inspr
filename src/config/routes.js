@@ -9,8 +9,8 @@ const routes = (
   <Router>
     <Main>
       <Route exact path="/" component={HomeContainer} />
-      <Route exact path="/:topicId" component={TopicAdjustmentsContainer} />
-      <Route exact path="/:topicId/results" component={ResultsContainer} />
+      <Route exact path="/generator" component={TopicAdjustmentsContainer} />
+      <Route exact path="/generator/:topicId" component={TopicAdjustmentsContainer} />
     </Main>
   </Router>
 )
