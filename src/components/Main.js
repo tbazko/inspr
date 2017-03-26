@@ -13,6 +13,7 @@ export default class AppComponent extends React.Component {
           transitionLeaveTimeout={500}>
         <div className="main-container container">
           {this.props.children}
+          <p className="footer"><a href="http://codoyster.com/">&copy; Codoyster</a></p>
         </div>
       </ReactCSSTransitionGroup>
     );
