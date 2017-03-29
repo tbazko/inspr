@@ -18,8 +18,7 @@
 
 .col-vcenter {
   position: absolute;
-  top: 30%;
-  transform: translateY(-50%);
+  top: 8%;
 }
 
 .appear-enter {

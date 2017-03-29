@@ -8,7 +8,8 @@ export default class WordsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      words: []
+      words: [],
+      isLoading: true
     }
     this.randomWords = null;
     this.synonyms = null;
@@ -17,6 +18,7 @@ export default class WordsContainer extends React.Component {
   render() {
     return(
       <Words
+        isLoading={this.state.isLoading}
         words={this.state.words}
         header={this.props.header}
         onSelected={this.handleSelected.bind(this)}
@@ -76,7 +78,8 @@ export default class WordsContainer extends React.Component {
     let words = this.responseToArrayOfWords(response);
     this.randomWords = new ItemsRandomizer(words);
     this.setState({
-      words: this.randomWords.getRandom(this.props.wordsAmount)
+      words: this.randomWords.getRandom(this.props.wordsAmount),
+      isLoading: false
     })
   }
 
@@ -87,6 +90,9 @@ export default class WordsContainer extends React.Component {
 
   handleRefresh(e) {
     if(this.randomWords.remaining < this.props.wordsAmount) {
+      this.setState({
+        isLoading: true
+      });
       if(this.props.random) {
         return this.getWordsFromApi();
       } else {

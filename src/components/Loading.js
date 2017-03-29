@@ -1,22 +1,5 @@
 import React, {PropTypes} from 'react'
 
-var styles = {
-  container: {
-    position: 'fixed',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    fontSize: '55px'
-  },
-  content: {
-    textAlign: 'center',
-    position: 'absolute',
-    width: '100%',
-    marginTop: '30px',
-  }
-}
-
 export default class Loading extends React.Component {
   constructor(props) {
     super(props);
@@ -47,9 +30,7 @@ export default class Loading extends React.Component {
 
   render() {
      return(
-      <div className="col-sm-12 text-center col-vcenter">
-        <h3>{this.state.text}</h3>
-      </div>
+      <h4>{this.state.text}</h4>
      )
   }
 }
