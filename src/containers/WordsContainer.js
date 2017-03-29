@@ -88,7 +88,7 @@ export default class WordsContainer extends React.Component {
     this.props.onWordSelected(e.target.innerText);
   }
 
-  handleRefresh(e) {
+  handleRefresh() {
     if(this.randomWords.remaining < this.props.wordsAmount) {
       this.setState({
         isLoading: true

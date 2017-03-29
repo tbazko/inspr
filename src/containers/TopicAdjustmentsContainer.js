@@ -16,17 +16,17 @@ export default class TopicAdjustmentsContainer extends React.Component {
 
   render() {
     return (
-      <div className="col-sm-12 text-center col-vcenter">
+      <div className='col-sm-12 text-center col-vcenter'>
         {this.providedTopic ? null :
           <WordsContainer
             random={true}
-            header="Select appealing word or refresh:"
+            header='Select appealing word or refresh:'
             onWordSelected={this.handleRandomSelected.bind(this)}
             getWordPromise={dictionaryAPI.getRandomWords.bind(dictionaryAPI)} />
         }
         {!this.state.firstWord ? null :
           <WordsContainer
-            header={!this.providedTopic ? '' : "Select appealing word or refresh:"}
+            header={!this.providedTopic ? '' : 'Select appealing word or refresh:'}
             baseWord={this.state.firstWord}
             onWordSelected={this.handleTopicSelected.bind(this)}
             getWordPromise={dictionaryAPI.getRelatedWords.bind(dictionaryAPI)} />}
@@ -41,7 +41,7 @@ export default class TopicAdjustmentsContainer extends React.Component {
             baseWord={this.state.adjective}
             getWordPromise={dictionaryAPI.getRelatedNounToAdjective.bind(dictionaryAPI)} />}
        {!this.state.relatedWord ? null :
-        <button type="button" style={{marginTop: '25px'}} className="btn btn-default btn-lg" onClick={this.goToResultsPage.bind(this)}>Show related pictures in google!</button>}
+        <button type='button' style={{marginTop: '25px'}} className='btn btn-default btn-lg' onClick={this.goToResultsPage.bind(this)}>Show related pictures in google!</button>}
       </div>
     )
   }

@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react'
 import Loading from './Loading'
-import Words from './Words'
 
 function Home(props) {
   return props.isLoading === true

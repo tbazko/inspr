@@ -19,5 +19,4 @@ export default class ItemsRandomizer {
   reset() {
     this.remaining = this.all.slice(this.all);
   }
-
 }
