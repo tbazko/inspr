@@ -10,6 +10,12 @@ let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
+  externals: {
+    'cheerio': 'window',
+    'react/addons': 'react',
+    'react/lib/ExecutionEnvironment': 'react',
+    'react/lib/ReactContext': 'react',
+  },
   module: {
     preLoaders: [
       {

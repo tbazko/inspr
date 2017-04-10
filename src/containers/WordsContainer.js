@@ -38,7 +38,6 @@ export default class WordsContainer extends React.Component {
   }
 
   changeWordToSimilar() {
-    let synonymsPromise;
     if(this.synonyms && this.synonyms.remaining.length > 0) {
       this.getWordsFromApi(this.synonyms.getRandom(1)[0].word);
     } else {

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import dictionaryAPI from '../utils/dictionaryAPI'
 import WordsContainer from './WordsContainer'
 

@@ -24,8 +24,10 @@ function Home(props) {
 
 Home.PropTypes = {
   topic: PropTypes.string.isRequired,
+  onStart: PropTypes.func.isRequired,
   onUpdateTopic: PropTypes.func.isRequired,
-  onSubmitTopic: PropTypes.func.isRequired
+  onSubmitTopic: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
 }
 
 export default Home

@@ -13,8 +13,12 @@ module.exports = function(config) {
     port: 8000,
     captureTimeout: 60000,
     frameworks: [ 'mocha', 'chai' ],
+    logLevel: config.LOG_INFO,
     client: {
-      mocha: {}
+      captureConsole: true,
+      mocha: {
+        bail: true
+      }
     },
     singleRun: true,
     reporters: [ 'mocha', 'coverage' ],

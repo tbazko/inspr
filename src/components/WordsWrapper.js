@@ -13,4 +13,8 @@ function WordsWrapper(props) {
   )
 }
 
+WordsWrapper.propTypes = {
+  onRefreshItems: PropTypes.func.isRequired
+}
+
 export default WordsWrapper;
